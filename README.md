@@ -18,14 +18,14 @@
 
 ### 🕐 Hour 1: Supabase
 
-- [ ] Create Supabase project
-- [ ] Create `todos` table:
+- [x] Create Supabase project
+- [x] Create `todos` table:
   - `id UUID PRIMARY KEY`
   - `text TEXT`
   - `completed BOOLEAN`
   - `created_at TIMESTAMP DEFAULT now()`
-- [ ] Turn off RLS or allow full `anon` access
-- [ ] Save Supabase project URL and anon key
+- [x] Turn off RLS or allow full `anon` access
+- [x] Save Supabase project URL and anon key
 
 ### 🕑 Hour 2: Go API Base
 
