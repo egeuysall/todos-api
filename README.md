@@ -10,7 +10,7 @@
 - [x] Database: Supabase PostgreSQL
 - [x] Deployment: VPS + Docker + Nginx + Certbot
 - [x] Frontend: Next.js + TypeScript + Tailwind CSS (on Vercel)
-- [ ] CLI Tool (Go, optional)
+- [x] CLI Tool
 
 ---
 
@@ -29,8 +29,8 @@
 
 ### 🕑 Hour 2: Go API Base
 
-- [ ] Init Go project: `go mod init`
-- [ ] Install `chi`, `pgx` or `sqlx`, `godotenv`
+- [x] Init Go project: `go mod init`
+- [x] Install `chi`, `pgx` or `sqlx`, `godotenv`
 - [ ] Connect to Supabase PostgreSQL with connection string
 - [ ] Create `POST /todo`: add a todo
 - [ ] Create `GET /todos`: return all todos
