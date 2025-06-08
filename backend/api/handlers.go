@@ -13,18 +13,18 @@ func CheckPing(w http.ResponseWriter, r *http.Request) {
 	SendJson(w, map[string]string{"status": "pong"}, http.StatusOK)
 }
 
-func CreateTodo() {
+func CreateTodo(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func GetTodo() {
+func GetTodo(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func DeleteTodo() {
+func DeleteTodo(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func UpdateTodo() {
+func UpdateTodo(w http.ResponseWriter, r *http.Request) {
 
 }
