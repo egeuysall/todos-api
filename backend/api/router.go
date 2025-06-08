@@ -29,15 +29,15 @@ func NewRouter() *chi.Mux {
 	r.Get("/", HandleRoot)
 	r.Get("/ping", CheckPing)
 
-	// r.Route("/v1", func(r chi.Router) {
-	// 	r.Post("/todos", CreateTodo)
-	// 	r.Group(func(r chi.Router) {
-	// 		r.Use(appmid.Auth())
-	// 		r.Get("/todos/{id}", GetTodo)
-	// 		r.Delete("/todos/{id}", DeleteTodo)
-	// 		r.Patch("/todos/{id}", UpdateTodo)
-	// 	})
-	// })
+	r.Route("/v1", func(r chi.Router) {
+		r.Post("/todos", CreateTodo)
+		r.Group(func(r chi.Router) {
+			r.Use(appmid.Auth())
+			r.Get("/todos/{id}", GetTodo)
+			r.Delete("/todos/{id}", DeleteTodo)
+			r.Patch("/todos/{id}", UpdateTodo)
+		})
+	})
 
 	return r
 } 

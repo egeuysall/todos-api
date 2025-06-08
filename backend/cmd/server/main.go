@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/egeuysall/todos-api/api"
+	"github.com/egeuysall/todos-api/db"
 	"github.com/joho/godotenv"
 )
 
@@ -14,6 +15,10 @@ func main() {
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
+
+	// Connect to the database
+	db := db.Connect()
+	defer db.Close()
 
 	// Define the router
 	router := api.NewRouter()
