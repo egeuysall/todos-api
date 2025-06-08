@@ -24,4 +24,3 @@ func Connect() *pgxpool.Pool {
 
 	return pool
 }
-
