@@ -11,14 +11,17 @@ import (
 
 func main() {
 	// Load environment variables
-	err := godotenv.Load("../../.env")
+	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
 
 	// Connect to the database
-	db := db.Connect()
-	defer db.Close()
+	dbConn := db.Connect()
+	defer dbConn.Close()
+
+	// Assign db connection
+	db.Db = dbConn
 
 	// Define the router
 	router := api.NewRouter()
