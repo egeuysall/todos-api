@@ -2,6 +2,7 @@ import React from "react";
 import { notFound } from "next/navigation";
 import { RandomImage } from "@/components/random-image";
 import { TodoItem } from "@/components/todo-item";
+import { DeleteTodo } from "@/components/delete-todo";
 
 const Todos = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
@@ -36,7 +37,10 @@ const Todos = async ({ params }: { params: Promise<{ id: string }> }) => {
   return (
     <main className="flex flex-col h-screen items-center justify-center">
       <div className="w-[90%] flex flex-col lg:grid lg:grid-cols-4 gap-12 bg-neutral-900 p-4 rounded-lg">
-        <RandomImage />
+        <section className="flex flex-col gap-4">
+          <RandomImage />
+          <DeleteTodo id={id} />
+        </section>
         <section className="lg:col-span-3 w-full flex gap-3 items-center">
           <TodoItem initialTodo={todo} />
         </section>
