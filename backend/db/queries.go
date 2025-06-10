@@ -62,3 +62,18 @@ func UpdateTodo(ctx context.Context, id string, todo Todo) error {
 
 	return nil
 }
+
+func DeleteDoneTodos(ctx context.Context) error {
+	query := `DELETE FROM todos WHERE completed = TRUE`
+	count, err := Db.Exec(ctx, query)
+
+	if err != nil {
+		return err
+	}
+
+	if count.RowsAffected() == 0 {
+		return pgx.ErrNoRows
+	}
+
+	return nil
+}
