@@ -10,13 +10,13 @@ import (
 
 // Create CORS middleware
 func Cors() func(next http.Handler) http.Handler {
-    return cors.Handler(cors.Options{
-        AllowedOrigins:   []string{"https://www.todos.egeuysal.com"},
-        AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
-        AllowedHeaders:   []string{"Accept", "Authorization", "Content-Type", "X-CSRF-Token"},
-        AllowCredentials: true,
-        MaxAge:           3600,
-    })
+	return cors.Handler(cors.Options{
+		AllowedOrigins:   []string{"https://www.todos.egeuysal.com", "http://localhost:3000"},
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"},
+		AllowedHeaders:   []string{"Accept", "Authorization", "Content-Type", "X-CSRF-Token"},
+		AllowCredentials: true,
+		MaxAge:           3600,
+	})
 }
 
 // Create authentication middleware with bearer api key
@@ -25,8 +25,12 @@ func Auth() func(http.Handler) http.Handler {
 
 	return func(next http.Handler) http.Handler {
 		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			authHeader := r.Header.Get("Authorization")
+			if r.Method == http.MethodOptions {
+				next.ServeHTTP(w, r)
+				return
+			}
 
+			authHeader := r.Header.Get("Authorization")
 			if authHeader == "" || !strings.HasPrefix(authHeader, "Bearer ") {
 				http.Error(w, "Unauthorized", http.StatusUnauthorized)
 				return
@@ -46,10 +50,10 @@ func Auth() func(http.Handler) http.Handler {
 
 // Set the content type to be always application/json
 func SetContentType() func(http.Handler) http.Handler {
-    return func(next http.Handler) http.Handler {
-        return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-            w.Header().Set("Content-Type", "application/json")
-            next.ServeHTTP(w, r)
-        })
-    }
+	return func(next http.Handler) http.Handler {
+		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			w.Header().Set("Content-Type", "application/json")
+			next.ServeHTTP(w, r)
+		})
+	}
 }

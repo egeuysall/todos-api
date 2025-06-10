@@ -53,7 +53,7 @@ export const Form = () => {
         >
           Get Todo
         </button>
-        <Link href="/dashboard" className="w-full">
+        <Link href="/v1/dashboard" className="w-full">
           <button type="button" className={`${buttonClass} w-full`}>
             View Dashboard
           </button>

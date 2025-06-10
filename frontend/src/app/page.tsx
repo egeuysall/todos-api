@@ -5,7 +5,7 @@ import Image from "next/image";
 const Home: React.FC = () => {
   return (
     <main className="flex flex-col h-screen items-center">
-      <div className="w-[90%] flex flex-col gap-6 ">
+      <div className="w-[90%] flex flex-col gap-6">
         <section>
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold">
             Todos API
