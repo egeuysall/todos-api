@@ -19,7 +19,7 @@ export const Form = () => {
       return;
     }
 
-    router.push(`/v1/todos/${encodeURIComponent(id.trim())}`);
+    router.push(`/v1/t odos/${encodeURIComponent(id.trim())}`);
   };
 
   const handleGet = () => {
@@ -53,9 +53,9 @@ export const Form = () => {
         >
           Get Todo
         </button>
-        <Link href="/v1/dashboard" className="w-full">
+        <Link href="/v1/create" className="w-full">
           <button type="button" className={`${buttonClass} w-full`}>
-            View Dashboard
+            Create todo
           </button>
         </Link>
       </form>
