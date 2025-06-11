@@ -44,7 +44,7 @@ func main() {
 	}()
 
 	// Start the server
-	log.Printf("Server starting on http://localhost:8080")
+	log.Printf("Server starting on https://todosapi.egeuysal.com/")
 	err = http.ListenAndServe(":8080", router)
 
 	if err != nil {

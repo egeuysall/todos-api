@@ -10,7 +10,7 @@ const Todos = async ({ params }: { params: Promise<{ id: string }> }) => {
 
   try {
     const response = await fetch(
-      `http://localhost:8080/v1/todos/${encodeURIComponent(id)}`,
+      `https://todosapi.egeuysal.com/v1/todos/${encodeURIComponent(id)}`,
       {
         method: "GET",
         headers: {

@@ -17,13 +17,16 @@ export const DeleteTodo: React.FC<DeleteProps> = ({ id }) => {
         throw new Error("API key not found.");
       }
 
-      const res = await fetch(`http://localhost:8080/v1/todos/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${apiKey}`,
-        },
-      });
+      const res = await fetch(
+        `https://todosapi.egeuysal.com/v1/todos/${encodeURIComponent(id)}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${apiKey}`,
+          },
+        }
+      );
 
       if (!res.ok) {
         throw new Error(`Failed: ${res.status}`);

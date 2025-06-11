@@ -15,7 +15,7 @@ const Dashboard: React.FC = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:8080/v1/todos", {
+      const res = await fetch("https://todosapi.egeuysal.com/v1/todos", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

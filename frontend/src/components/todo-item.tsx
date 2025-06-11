@@ -39,7 +39,7 @@ export const TodoItem = ({ initialTodo }: TodoItemProps) => {
         };
 
         const res = await fetch(
-          `http://localhost:8080/v1/todos/${initialTodo.id}`,
+          `https://todosapi.egeuysal.com/v1/todos/${initialTodo.id}`,
           {
             method: "PATCH",
             headers: {
